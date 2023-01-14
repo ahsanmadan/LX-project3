@@ -12,14 +12,8 @@ from flask import (
 import certifi
 from pymongo import MongoClient
 
-dotenv_path = join(dirname(__file__), "env")
-load_dotenv(dotenv_path)
-
-uri = os.environ.get("MONGODB_URI")
-db_name = os.environ.get("DB_NAME")
-
-client = MongoClient("uri", tlsCAFile=certifi.where())
-db = client[db_name]
+client = MongoClient("mongodb+srv://test:asan@cluster0.hmhssac.mongodb.net/?retryWrites=true&w=majority", tlsCAFile=certifi.where())
+db = client.dbsparta
 
 app = Flask(__name__)
 
